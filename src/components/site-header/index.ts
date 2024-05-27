@@ -1,1 +1,1 @@
-export { default } from './site-header';
+export { default } from './site-header'

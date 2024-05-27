@@ -1,1 +1,1 @@
-export { default } from './squash';
+export { default } from './squash'

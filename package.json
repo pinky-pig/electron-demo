@@ -2,11 +2,12 @@
   "name": "shadcn-react-vite-electron",
   "version": "0.0.1",
   "description": "Starter using Vite React Typescript Electron",
+  "type": "module",
   "license": "MIT",
-  "main": "main/index.js",
   "author": {
     "name": "Painkiller995"
   },
+  "main": "main/index.cjs",
   "scripts": {
     "dev": "concurrently \"yarn dev:vite\" \" yarn dev:electron\"",
     "dev:vite": "vite",
@@ -18,8 +19,8 @@
     "pack": "npm run build && electron-builder --dir",
     "clean": "rimraf dist main src/out",
     "type-check": "tsc",
-    "lint": "eslint . --ext js,jsx,ts,tsx",
-    "lint:fix": "eslint . --ext js,jsx,ts,tsx --fix"
+    "lint:fix": "eslint --fix .",
+    "prettier:fix": "prettier --write ."
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.0.6",
@@ -38,33 +39,18 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@arvinn/eslint-config": "^0.0.4",
+    "@arvinn/prettier-config": "^0.0.1",
     "@types/node": "^20.10.6",
     "@types/react": "^18.2.46",
     "@types/react-dom": "^18.2.18",
-    "@typescript-eslint/eslint-plugin": "6.17.0",
-    "@typescript-eslint/parser": "6.17.0",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.16",
     "autosuggest-highlight": "^3.3.4",
     "concurrently": "^8.2.2",
     "electron": "^28.1.0",
     "electron-builder": "^24.9.1",
-    "eslint": "8.56.0",
-    "eslint-config-airbnb": "19.0.4",
-    "eslint-config-airbnb-typescript": "^17.1.0",
-    "eslint-config-prettier": "9.1.0",
-    "eslint-config-react-app": "^7.0.1",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-flowtype": "^8.0.3",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-prettier": "5.1.2",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
-    "eslint-plugin-tailwindcss": "^3.13.1",
-    "eslint-plugin-unused-imports": "^3.0.0",
+    "eslint": "^9.3.0",
     "postcss": "^8.4.32",
     "prettier": "3.1.1",
     "prettier-plugin-tailwindcss": "0.5.10",
@@ -73,6 +59,7 @@
     "vite": "^5.0.10",
     "vite-plugin-electron": "^0.15.5"
   },
+  "prettier": "@arvinn/prettier-config",
   "build": {
     "asar": true,
     "files": [

@@ -1,8 +1,8 @@
-import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
 
-import { buttonVariants } from '@/components/ui/button';
-import { sitePaths } from '@/configurations/paths';
+import { buttonVariants } from '@/components/ui/button'
+import { sitePaths } from '@/config/paths'
 
 // ----------------------------------------------------------------------
 
@@ -18,7 +18,8 @@ export default function Page500() {
           Oops! Internal Server Error
         </h1>
         <p className="p-4 text-center text-lg text-muted-foreground">
-          Something went wrong on our end. We&apos;re working to fix it as soon as possible.
+          Something went wrong on our end. We&apos;re working to fix it as soon
+          as possible.
         </p>
         <p className="mb-4 p-5 text-2xl">🛠️🔥</p>
         <Link to={sitePaths.home}>
@@ -33,5 +34,5 @@ export default function Page500() {
         </Link>
       </section>
     </>
-  );
+  )
 }

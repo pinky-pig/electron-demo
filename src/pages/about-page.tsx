@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async'
 
 export default function AboutPage() {
   return (
@@ -12,10 +12,11 @@ export default function AboutPage() {
             Welcome to Our Company
           </h1>
           <p className="max-w-[700px] pt-4 text-lg text-muted-foreground">
-            We are a dedicated team committed to providing high-quality products and services.
+            We are a dedicated team committed to providing high-quality products
+            and services.
           </p>
         </div>
       </section>
     </>
-  );
+  )
 }

@@ -1,1 +1,1 @@
-export { Navigator } from './navigator';
+export { Navigator } from './navigator'

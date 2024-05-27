@@ -1,20 +1,21 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
-import { links, pathsArr, sitePaths } from '@/configurations/paths';
+import { links, sitePaths } from '@/config/paths'
 
-import { Icons } from '../icons';
-import { HeaderLogo } from '../logo';
-import { Navigator } from '../navigation';
-import { ModeToggle } from '../theme-provider';
-import { buttonVariants } from '../ui/button';
+import { Icons } from '../icons'
+import { Navigator } from '../navigation'
+import { ModeToggle } from '../theme-provider'
+import { buttonVariants } from '../ui/button'
 
 interface SiteHeaderProps {
-  useNav?: boolean;
-  useHelp?: boolean;
+  useNav?: boolean
+  useHelp?: boolean
 }
 
-export default function SiteHeader({ useNav = true, useHelp = false }: SiteHeaderProps) {
+export default function SiteHeader({
+  useNav = true,
+  useHelp = false,
+}: SiteHeaderProps) {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="flex h-16 items-center  overflow-hidden px-6 sm:justify-between sm:gap-6 sm:space-x-0">
@@ -60,5 +61,5 @@ export default function SiteHeader({ useNav = true, useHelp = false }: SiteHeade
         </div>
       </div>
     </header>
-  );
+  )
 }

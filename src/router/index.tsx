@@ -1,13 +1,13 @@
-import { Navigate, useRoutes } from 'react-router-dom';
+import { Navigate, useRoutes } from 'react-router-dom'
 
-import { sitePaths } from '@/configurations/paths';
+import { sitePaths } from '@/config/paths'
 // layouts
-import MainLayout from '@/layouts/main/layout';
+import MainLayout from '@/layouts/main/layout'
 
-import { appRoutes } from './app-routes';
-import { errorsRoutes } from './errors-routes';
+import { appRoutes } from './routes/app-routes'
+import { errorsRoutes } from './routes/errors-routes'
 // config
-import { HomePage, mainRoutes } from './main-routes';
+import { HomePage, mainRoutes } from './routes/main-routes'
 
 // ----------------------------------------------------------------------
 
@@ -25,5 +25,5 @@ export default function Router() {
     ...appRoutes,
     ...errorsRoutes,
     { path: '*', element: <Navigate to={sitePaths.page404} replace /> },
-  ]);
+  ])
 }

@@ -1,16 +1,16 @@
-import '@/styles/globals.css';
+import '@/styles/globals.css'
 
-import { Suspense } from 'react';
-import ReactDOM from 'react-dom/client';
-import { HelmetProvider } from 'react-helmet-async';
-import { BrowserRouter } from 'react-router-dom';
+import { Suspense } from 'react'
+import ReactDOM from 'react-dom/client'
+import { HelmetProvider } from 'react-helmet-async'
+import { BrowserRouter } from 'react-router-dom'
 
 //
-import App from './App';
+import App from './App'
 
 // ----------------------------------------------------------------------
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+const root = ReactDOM.createRoot(document.querySelector('#root') as HTMLElement)
 
 root.render(
   <HelmetProvider>
@@ -19,5 +19,5 @@ root.render(
         <App />
       </Suspense>
     </BrowserRouter>
-  </HelmetProvider>
-);
+  </HelmetProvider>,
+)

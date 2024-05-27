@@ -1,8 +1,8 @@
-import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
 
-import { buttonVariants } from '@/components/ui/button';
-import { sitePaths } from '@/configurations/paths';
+import { buttonVariants } from '@/components/ui/button'
+import { sitePaths } from '@/config/paths'
 
 // ----------------------------------------------------------------------
 
@@ -33,5 +33,5 @@ export default function Page404() {
         </Link>
       </section>
     </>
-  );
+  )
 }

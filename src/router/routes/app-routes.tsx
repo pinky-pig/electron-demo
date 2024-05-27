@@ -1,14 +1,14 @@
-import { lazy, Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Suspense, lazy } from 'react'
+import { Outlet } from 'react-router-dom'
 
-import { SplashScreen } from '@/components/loading-screen';
-import { sitePaths } from '@/configurations/paths';
+import { SplashScreen } from '@/components/loading-screen'
+import { sitePaths } from '@/config/paths'
 // Layout
-import MainLayout from '@/layouts/main/layout';
+import MainLayout from '@/layouts/main/layout'
 
 // ----------------------------------------------------------------------
 
-const PageOne = lazy(() => import('@/pages/page-one'));
+const PageOne = lazy(() => import('@/pages/page-one'))
 
 // ----------------------------------------------------------------------
 
@@ -23,4 +23,4 @@ export const appRoutes = [
     ),
     children: [{ path: sitePaths.pageOne, element: <PageOne /> }],
   },
-];
+]

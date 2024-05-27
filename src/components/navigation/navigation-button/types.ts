@@ -1,28 +1,28 @@
-import { Dispatch, SetStateAction } from 'react';
+import type { Dispatch, SetStateAction } from 'react'
 
 export interface CommonBurgerProps {
   /** The color of the icon bars, accepts any CSS-parsable argument. */
-  color?: string;
+  color?: string
   /** The animation direction of the icon, left or right. */
-  direction?: 'left' | 'right';
+  direction?: 'left' | 'right'
   /** The vertical distance between the lines. Small (sm), medium (md) or large (lg). */
-  distance?: 'sm' | 'md' | 'lg';
+  distance?: 'sm' | 'md' | 'lg'
   /** The duration of the animation. Can be set to zero if no animation is desired. */
-  duration?: number;
+  duration?: number
   /** A valid `transition-timing-function` CSS value, for example 'ease-out'. */
-  easing?: string;
+  easing?: string
   /** Hides the default browser focus style. */
-  hideOutline?: boolean;
+  hideOutline?: boolean
   /** An ARIA label to improve accessibility. */
-  label?: string;
+  label?: string
   /** A callback which receives a single boolean argument, indicating if the icon is toggled. */
-  onToggle?: (toggled: boolean) => any;
+  onToggle?: (toggled: boolean) => any
   /** Specifies if the icon bars should be rounded. */
-  rounded?: boolean;
+  rounded?: boolean
   /** A number between 12 and 48, which sets the size of the icon. */
-  size?: number;
+  size?: number
   /** A way to provide your own state action. Has to be used together with a state value (the `toggled` prop). */
-  toggle?: Dispatch<SetStateAction<boolean>>;
+  toggle?: Dispatch<SetStateAction<boolean>>
   /** A way to provide your own state value. Can be used together with a state action (the `toggle` prop). */
-  toggled?: boolean;
+  toggled?: boolean
 }

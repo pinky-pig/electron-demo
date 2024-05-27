@@ -1,4 +1,4 @@
-import { NavItem } from '@/types/nav';
+import type { NavItem } from '@/typings/nav'
 
 export const sitePaths = {
   home: '/',
@@ -8,7 +8,7 @@ export const sitePaths = {
   page404: '/404',
   page500: '/500',
   needHelp: 'https://en.wikipedia.org/wiki/Help',
-};
+}
 
 export const pathsArr: NavItem[] = [
   {
@@ -53,10 +53,10 @@ export const pathsArr: NavItem[] = [
     href: '/disabled',
     disabled: true,
   },
-];
+]
 
 export const links = {
   twitter: 'https://twitter.com/fahddaher',
   github: 'https://github.com/Painkiller995',
   docs: 'https://ui.shadcn.com',
-};
+}
