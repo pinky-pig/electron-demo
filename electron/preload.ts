@@ -9,17 +9,14 @@ declare global {
 
 const api = {
   /**
-   * Here you can expose functions to the renderer process
-   * so they can interact with the main (electron) side
-   * without security problems.
-   *
-   * The function below can accessed using `window.Main.sayHello`
+   * 定义一些方法，让渲染进程可以调用 `window.Main.sayHello`
    */
   sendMessage: (message: string) => {
     ipcRenderer.send('message', message)
   },
+
   /**
-    Here function for AppBar
+   * 软件状态栏的调用函数
    */
   Minimize: () => {
     ipcRenderer.send('minimize')
@@ -30,16 +27,18 @@ const api = {
   Close: () => {
     ipcRenderer.send('close')
   },
+
   /**
-   * Provide an easier way to listen to events
+   * 提供一个简单的监听回掉函数
    */
   on: (channel: string, callback: (data: any) => void) => {
     ipcRenderer.on(channel, (_, data) => callback(data))
   },
 }
 contextBridge.exposeInMainWorld('Main', api)
+
 /**
- * Using the ipcRenderer directly in the browser through the contextBridge ist not really secure.
- * I advise using the Main/api way !!
+ * 直接在浏览器中使用ipcRenderer并不真正安全。
+ * 所以最好使用 Main/api 的方式 !!
  */
 contextBridge.exposeInMainWorld('ipcRenderer', ipcRenderer)
