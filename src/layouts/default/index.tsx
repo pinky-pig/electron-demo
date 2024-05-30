@@ -1,4 +1,5 @@
 import React from 'react'
+import { Moon, Sun } from 'lucide-react'
 import { ThemeProvider } from '@/components/theme-provider'
 import {
   Tooltip,
@@ -9,6 +10,7 @@ import {
 import { cn } from '@/lib/utils'
 import { Icons } from '@/components/icons'
 import { useAppStore } from '@/store'
+import { ModeToggleLite } from '@/components/theme-provider/mode-toggle'
 import SidebarContent from './SidebarContent'
 interface RootLayoutProps {
   children: React.ReactNode
@@ -139,7 +141,7 @@ export default function DefaultLayout({ children }: RootLayoutProps) {
               {/* 1.头部按钮 */}
               <div
                 className={cn(
-                  'flex h-[52px] items-center justify-end p-4 flex-shrink-0 flex-grow-0',
+                  'flex h-[52px] items-center justify-end p-4 pl-[90px] flex-shrink-0 flex-grow-0 overflow-hidden',
                 )}
               >
                 <Tooltip delayDuration={700}>
@@ -148,7 +150,7 @@ export default function DefaultLayout({ children }: RootLayoutProps) {
                       onClick={toggleSidebarCollapsed}
                       className={cn(
                         'rounded-md flex justify-center items-center w-8 h-8 bg-transparent hover:bg-app-third transition-all duration-300 ease-in-out',
-                        isCollapsed && 'opacity-0',
+                        isCollapsed ? 'opacity-0' : 'opacity-100',
                       )}
                     >
                       <Icons.Collapse className="w-6 h-6 text-app-text-1"></Icons.Collapse>
@@ -156,6 +158,31 @@ export default function DefaultLayout({ children }: RootLayoutProps) {
                   </TooltipTrigger>
                   <TooltipContent>
                     <p>折叠侧边栏</p>
+                  </TooltipContent>
+                </Tooltip>
+
+                <Tooltip delayDuration={700}>
+                  <TooltipTrigger>
+                    <ModeToggleLite
+                      className={cn(
+                        'relative rounded-md flex justify-center items-center w-8 h-8 bg-transparent hover:bg-app-third transition-all duration-300 ease-in-out',
+                        isCollapsed ? 'opacity-0' : 'opacity-100',
+                      )}
+                    >
+                      <Sun
+                        className={cn(
+                          'h-[1.2rem] cursor-pointer w-[1.2rem] text-app-text-1 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0',
+                        )}
+                      />
+                      <Moon
+                        className={cn(
+                          'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer h-[1.2rem] w-[1.2rem] text-app-text-1 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100',
+                        )}
+                      />
+                    </ModeToggleLite>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>切换暗黑主题</p>
                   </TooltipContent>
                 </Tooltip>
               </div>

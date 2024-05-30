@@ -1,5 +1,5 @@
 import { Moon, Sun } from 'lucide-react'
-
+import { flushSync } from 'react-dom'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,6 +7,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
+import { cn } from '@/lib/utils'
 import { Button } from '../ui/button'
 import { useTheme } from './theme-provider'
 
@@ -34,5 +35,73 @@ export function ModeToggle() {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
+  )
+}
+
+interface ModeToggleLiteProps {
+  children: React.ReactNode
+  className?: string
+}
+export function ModeToggleLite({
+  className,
+  children,
+  ...props
+}: ModeToggleLiteProps) {
+  const { theme, setTheme } = useTheme()
+
+  function toggleDark(event: React.MouseEvent) {
+    // @ts-ignore
+    // prettier-ignore
+    const isAppearanceTransition = document.startViewTransition && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (!isAppearanceTransition) {
+      setTheme(theme === 'dark' ? 'light' : 'dark')
+      return
+    }
+
+    const x = event.clientX
+    const y = event.clientY
+    const endRadius = Math.hypot(
+      Math.max(x, innerWidth - x),
+      Math.max(y, innerHeight - y),
+    )
+
+    const transition = document.startViewTransition(() => {
+      flushSync(() => {
+        setTheme(theme === 'dark' ? 'light' : 'dark')
+      })
+    })
+    transition.ready.then(() => {
+      const clipPath = [
+        `circle(0px at ${x}px ${y}px)`,
+        `circle(${endRadius}px at ${x}px ${y}px)`,
+      ]
+      document.documentElement.animate(
+        {
+          clipPath: theme === 'light' ? [...clipPath].reverse() : clipPath,
+        },
+        {
+          duration: 400,
+          easing: 'ease-out',
+          pseudoElement:
+            theme === 'light'
+              ? '::view-transition-old(root)'
+              : '::view-transition-new(root)',
+        },
+      )
+    })
+  }
+
+  return (
+    <>
+      <button
+        onClick={(e) => {
+          toggleDark(e)
+        }}
+        className={cn(className)}
+        {...props}
+      >
+        {children}
+      </button>
+    </>
   )
 }

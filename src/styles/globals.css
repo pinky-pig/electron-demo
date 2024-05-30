@@ -1,3 +1,5 @@
+@import './view-transition-api.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -26,10 +28,10 @@
     --radius: 0.5rem;
 
     /* 自定义颜色 */
-    --app-primary: #282828;
-    --app-secondary: #141414;
-    --app-third: #3e3d3d;
-    --app-text: #ffffff;
+    --app-primary: #f6f7f8;
+    --app-secondary: #ffffff;
+    --app-third: #f5f5f5;
+    --app-text: #000000;
     --app-text-1: #a8a8a1;
     --blue: #4b9cde;
   }
