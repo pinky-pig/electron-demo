@@ -1,6 +1,11 @@
 import React from 'react'
 import { ThemeProvider } from '@/components/theme-provider'
-import { TooltipProvider } from '@/components/ui/tooltip'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
 import { cn } from '@/lib/utils'
 import { Icons } from '@/components/icons'
 import { useAppStore } from '@/store'
@@ -137,15 +142,22 @@ export default function DefaultLayout({ children }: RootLayoutProps) {
                   'flex h-[52px] items-center justify-end p-4 flex-shrink-0 flex-grow-0',
                 )}
               >
-                <button
-                  onClick={toggleSidebarCollapsed}
-                  className={cn(
-                    'rounded-md flex justify-center items-center w-8 h-8 bg-transparent hover:bg-app-third transition-all duration-300 ease-in-out',
-                    isCollapsed && 'opacity-0',
-                  )}
-                >
-                  <Icons.Collapse className="w-6 h-6 text-app-text-1"></Icons.Collapse>
-                </button>
+                <Tooltip delayDuration={700}>
+                  <TooltipTrigger asChild>
+                    <button
+                      onClick={toggleSidebarCollapsed}
+                      className={cn(
+                        'rounded-md flex justify-center items-center w-8 h-8 bg-transparent hover:bg-app-third transition-all duration-300 ease-in-out',
+                        isCollapsed && 'opacity-0',
+                      )}
+                    >
+                      <Icons.Collapse className="w-6 h-6 text-app-text-1"></Icons.Collapse>
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>折叠侧边栏</p>
+                  </TooltipContent>
+                </Tooltip>
               </div>
               {/* 2.侧边栏内容 */}
               <div className="flex-1 w-full overflow-y-auto overflow-x-hidden">
