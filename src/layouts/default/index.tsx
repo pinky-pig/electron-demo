@@ -116,7 +116,7 @@ export default function DefaultLayout({ children }: RootLayoutProps) {
         <div className="relative flex flex-row !h-screen bg-app-primary text-app-text">
           <div className={cn('h-full relative')}>
             {/* 右侧用于拖拽分栏的 DOM */}
-            <div className="h-[calc(100vh_-_2rem)] will-change-transform mt-4 rounded-md overflow-hidden relative z-1">
+            <div className="peer h-[calc(100vh_-_2rem)] will-change-transform mt-4 rounded-md overflow-hidden relative z-1">
               <div
                 ref={resizeHandleRef}
                 style={{
@@ -130,7 +130,7 @@ export default function DefaultLayout({ children }: RootLayoutProps) {
             </div>
 
             {/* 左侧内容侧边栏的内容 */}
-            <div className="h-full w-[calc(100%_-_4px)] overflow-hidden flex flex-col absolute top-0 left-0 z-9 ">
+            <div className="h-full w-[calc(100%_-_4px)] overflow-hidden flex flex-col absolute top-0 left-0 z-9 pb-2">
               {/* 1.头部按钮 */}
               <div
                 className={cn(
@@ -148,7 +148,7 @@ export default function DefaultLayout({ children }: RootLayoutProps) {
                 </button>
               </div>
               {/* 2.侧边栏内容 */}
-              <div className="flex-1 w-full overflow-auto">
+              <div className="flex-1 w-full overflow-y-auto overflow-x-hidden">
                 <SidebarContent></SidebarContent>
               </div>
             </div>
@@ -157,7 +157,7 @@ export default function DefaultLayout({ children }: RootLayoutProps) {
           <div
             className={cn(
               'h-full relative bg-transparent box-border flex-1',
-              hasBorder && (isCollapsed ? 'p-2' : 'py-2 pr-2'),
+              hasBorder && 'p-2',
             )}
           >
             <div className="w-full h-full rounded-[8px] bg-app-secondary overflow-auto">

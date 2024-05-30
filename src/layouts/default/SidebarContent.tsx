@@ -1,3 +1,3 @@
 export default function SidebarContent() {
-  return <div className="flex flex-col h-screen">SidebarContent</div>
+  return <div className="flex flex-col h-screen ">SidebarContent</div>
 }
