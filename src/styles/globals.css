@@ -24,6 +24,14 @@
     --input: 240 5.9% 90%;
     --ring: 240 5.9% 10%;
     --radius: 0.5rem;
+
+    /* 自定义颜色 */
+    --app-primary: #282828;
+    --app-secondary: #141414;
+    --app-third: #3e3d3d;
+    --app-text: #ffffff;
+    --app-text-1: #a8a8a1;
+    --blue: #4b9cde;
   }
 
   .dark {
@@ -46,6 +54,14 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
+
+    /* 自定义颜色 */
+    --app-primary: #282828;
+    --app-secondary: #141414;
+    --app-third: #3e3d3d;
+    --app-text: #ffffff;
+    --app-text-1: #a8a8a1;
+    --blue: #4b9cde;
   }
 }
 
@@ -59,4 +75,17 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  header {
+    -webkit-app-region: drag;
+  }
+
+  button,a {
+    -webkit-app-region: no-drag;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
 }

@@ -9,7 +9,7 @@
   },
   "main": "main/index.cjs",
   "scripts": {
-    "dev": "concurrently \"yarn dev:vite\" \" yarn dev:electron\"",
+    "dev": "concurrently \"npm run dev:vite\" \" npm run dev:electron\"",
     "dev:vite": "vite",
     "dev:electron": "npm run build:electron && electron .",
     "build": "npm run build:vite && npm run build:electron",
@@ -25,7 +25,9 @@
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-navigation-menu": "^1.1.4",
+    "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-tooltip": "^1.0.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "electron-is-dev": "^2.0.0",
@@ -33,10 +35,12 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^2.0.4",
+    "react-resizable-panels": "^2.0.19",
     "react-router-dom": "^6.21.1",
     "tailwind-merge": "^2.2.0",
     "tailwind-scrollbar-hide": "^1.1.7",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@arvinn/eslint-config": "^0.0.4",

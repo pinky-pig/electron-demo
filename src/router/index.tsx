@@ -2,7 +2,7 @@ import { Navigate, useRoutes } from 'react-router-dom'
 
 import { sitePaths } from '@/config/paths'
 // layouts
-import MainLayout from '@/layouts/main/layout'
+import DefaultLayout from '@/layouts/default/index'
 
 import { appRoutes } from './routes/app-routes'
 import { errorsRoutes } from './routes/errors-routes'
@@ -16,9 +16,9 @@ export default function Router() {
     {
       path: sitePaths.home,
       element: (
-        <MainLayout>
+        <DefaultLayout>
           <HomePage />
-        </MainLayout>
+        </DefaultLayout>
       ),
     },
     ...mainRoutes,

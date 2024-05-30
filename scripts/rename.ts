@@ -7,12 +7,15 @@ const __filename = fileURLToPath(import.meta.url)
 // 获取当前模块所在目录的路径
 const __dirname = path.dirname(__filename)
 
-// 旧文件路径
-const oldFilePath = path.resolve(__dirname, '../main/index.js')
-// 新文件路径
-const newFilePath = path.resolve(__dirname, '../main/index.cjs')
+rename('index.cjs', 'index.js', '../main/')
+rename('preload.cjs', 'preload.js', '../main/')
 
-// 重命名文件
-fs.move(oldFilePath, newFilePath)
-  .then(() => console.log('File renamed successfully!'))
-  .catch((error: any) => console.error('Error renaming file:', error))
+function rename(newName: string, oldName: string, folderPath: string) {
+  // 重命名文件
+  fs.move(
+    path.resolve(__dirname, folderPath + oldName),
+    path.resolve(__dirname, folderPath + newName),
+  )
+    .then(() => console.log('File renamed successfully!'))
+    .catch((error: any) => console.error('Error renaming file:', error))
+}

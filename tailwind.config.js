@@ -14,6 +14,13 @@ export default {
     },
     extend: {
       colors: {
+        'app-primary': 'var(--app-primary)',
+        'app-secondary': 'var(--app-secondary)',
+        'app-third': 'var(--app-third)',
+        'app-text': 'var(--app-text)',
+        'app-text-1': 'var(--app-text-1)',
+        blue: 'var(--blue)',
+
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',

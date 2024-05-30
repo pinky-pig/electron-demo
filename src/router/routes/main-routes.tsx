@@ -4,15 +4,12 @@ import { Outlet } from 'react-router-dom'
 import { SplashScreen } from '@/components/loading-screen'
 import { sitePaths } from '@/config/paths'
 // Layout
-import MainLayout from '@/layouts/main/layout'
+import MainLayout from '@/layouts/default/index'
 
 // ----------------------------------------------------------------------
 
-export const HomePage = lazy(() => import('@/pages/home-page'))
+export const HomePage = lazy(() => import('@/pages/home/index'))
 const AboutPage = lazy(() => import('@/pages/about-page'))
-
-// eslint-disable-next-line unused-imports/no-unused-vars
-const PageOne = lazy(() => import('@/pages/page-one'))
 
 // ----------------------------------------------------------------------
 

@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 import { SplashScreen } from '@/components/loading-screen'
 import { sitePaths } from '@/config/paths'
 // Layout
-import MainLayout from '@/layouts/main/layout'
+import MainLayout from '@/layouts/default/index'
 
 // ----------------------------------------------------------------------
 
