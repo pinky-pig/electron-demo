@@ -19,6 +19,7 @@ export default {
         'app-third': 'var(--app-third)',
         'app-text': 'var(--app-text)',
         'app-text-1': 'var(--app-text-1)',
+        'app-modal-background': 'var(--app-modal-background)',
         'app-black-10': 'var(--app-black-10)',
         blue: 'var(--blue)',
 
