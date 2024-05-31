@@ -197,9 +197,7 @@ export default function DefaultLayout({ children }: RootLayoutProps) {
               <div
                 style={{
                   // 这个是为了收缩或者展开的时候，右边主内容有个覆盖到侧边栏的效果
-                  minWidth: isCollapsed
-                    ? `${sidebarWidth}px`
-                    : `${lastSidebarWidth}px`,
+                  minWidth: `${maxMinSidebarWidth[0]}px`,
                 }}
                 className="flex-1 w-full overflow-y-auto overflow-x-hidden"
               >
