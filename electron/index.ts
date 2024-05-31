@@ -47,6 +47,8 @@ function createWindow() {
     // title: GlobalConfig.getAppTitle(), // 如果由 loadURL() 加载的 HTML 文件中含有标签 <title>，此属性将被忽略
     width: width * 0.3,
     height: height * 0.9,
+    minWidth: 640,
+    minHeight: 480,
     show: false, // 是否在创建时显示, 默认值为 true
     frame: false, // 是否有边框
     center: true, // 是否在屏幕居中
