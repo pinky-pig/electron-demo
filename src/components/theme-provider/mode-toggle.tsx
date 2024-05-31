@@ -7,7 +7,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-import { cn } from '@/lib/utils'
 import { Button } from '../ui/button'
 import { useTheme } from './theme-provider'
 
@@ -92,16 +91,8 @@ export function ModeToggleLite({
   }
 
   return (
-    <>
-      <button
-        onClick={(e) => {
-          toggleDark(e)
-        }}
-        className={cn(className)}
-        {...props}
-      >
-        {children}
-      </button>
-    </>
+    <div onClick={toggleDark} className={className} {...props}>
+      {children}
+    </div>
   )
 }

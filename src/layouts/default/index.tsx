@@ -12,6 +12,7 @@ import { Icons } from '@/components/icons'
 import { useAppStore } from '@/store'
 import { ModeToggleLite } from '@/components/theme-provider/mode-toggle'
 import SidebarContent from './SidebarContent'
+
 interface RootLayoutProps {
   children: React.ReactNode
 }
@@ -120,7 +121,13 @@ export default function DefaultLayout({ children }: RootLayoutProps) {
   return (
     <TooltipProvider delayDuration={0}>
       <ThemeProvider defaultTheme="dark">
-        <div className="relative flex flex-row !h-screen bg-app-primary text-app-text">
+        <div
+          className={cn(
+            " relative flex flex-row !h-screen bg-app-primary text-app-text before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-repeat before:opacity-[0.04] before:pointer-events-none ",
+            false &&
+              "before:bg-[url('https://superellipse.mmeme.me/noise.png')]",
+          )}
+        >
           <div className={cn('h-full relative')}>
             {/* 右侧用于拖拽分栏的 DOM */}
             <div className="peer h-[calc(100vh_-_2rem)] will-change-transform mt-4 rounded-md overflow-hidden relative z-1">
@@ -187,7 +194,15 @@ export default function DefaultLayout({ children }: RootLayoutProps) {
                 </Tooltip>
               </div>
               {/* 2.侧边栏内容 */}
-              <div className="flex-1 w-full overflow-y-auto overflow-x-hidden">
+              <div
+                style={{
+                  // 这个是为了收缩或者展开的时候，右边主内容有个覆盖到侧边栏的效果
+                  minWidth: isCollapsed
+                    ? `${sidebarWidth}px`
+                    : `${lastSidebarWidth}px`,
+                }}
+                className="flex-1 w-full overflow-y-auto overflow-x-hidden"
+              >
                 <SidebarContent></SidebarContent>
               </div>
             </div>

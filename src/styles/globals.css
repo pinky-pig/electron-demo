@@ -34,6 +34,8 @@
     --app-text: #000000;
     --app-text-1: #a8a8a1;
     --blue: #4b9cde;
+
+    --app-black-10: #0000001a;
   }
 
   .dark {
@@ -64,6 +66,8 @@
     --app-text: #ffffff;
     --app-text-1: #a8a8a1;
     --blue: #4b9cde;
+
+    --app-black-10: #ffffff1a;
   }
 }
 

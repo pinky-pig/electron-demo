@@ -19,6 +19,7 @@ export default {
         'app-third': 'var(--app-third)',
         'app-text': 'var(--app-text)',
         'app-text-1': 'var(--app-text-1)',
+        'app-black-10': 'var(--app-black-10)',
         blue: 'var(--blue)',
 
         border: 'hsl(var(--border))',
