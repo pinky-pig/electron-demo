@@ -2,6 +2,7 @@ import type { NavItem } from '@/typings/nav'
 
 export const sitePaths = {
   home: '/',
+  calendar: '/calendar',
   pageOne: '/PageOne',
   about: '/about',
   page403: '/403',

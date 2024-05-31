@@ -11,7 +11,7 @@ export default function SidebarContent() {
     {
       label: '日历',
       icon: CalendarDays,
-      href: '/about',
+      href: '/calendar',
     },
   ]
   return (
