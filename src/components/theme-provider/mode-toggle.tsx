@@ -96,3 +96,42 @@ export function ModeToggleLite({
     </div>
   )
 }
+
+/**
+ * 第二种主题切换动画，直接在 transition.ready.then(() => toggleModeSecond()) 使用
+ */
+export function toggleModeSecond() {
+  /**
+   * 需要先设置如下 css
+   *  :root {
+   *    background: hsl(210 70% 34%);
+   *  }
+   *  ::view-transition-new(root) {
+   *    opacity: 0;
+   *  }
+   */
+  const oldKeyframes = [
+    { offset: 0, transform: `scale(1) rotateY(0deg)`, opacity: 1 },
+    { offset: 0.25, transform: `scale(0.5) rotateY(0deg)`, opacity: 1 },
+    { offset: 1, transform: `scale(0.5) rotateY(90deg)`, opacity: 0 },
+  ]
+
+  const animation1 = document.documentElement.animate(oldKeyframes, {
+    duration: 500,
+    easing: 'ease-in',
+    pseudoElement: '::view-transition-old(root)',
+  })
+
+  animation1.onfinish = () => {
+    const newKeyframes = [
+      { offset: 0, transform: `scale(0.5) rotateY(90deg)`, opacity: 0 },
+      { offset: 0.75, transform: `scale(0.5) rotateY(0deg)`, opacity: 1 },
+      { offset: 1, transform: `scale(1) rotateY(0deg)`, opacity: 1 },
+    ]
+    document.documentElement.animate(newKeyframes, {
+      duration: 500,
+      easing: 'linear',
+      pseudoElement: '::view-transition-new(root)',
+    })
+  }
+}
